@@ -1,6 +1,6 @@
-# Cookit
+# Cookease
 
-Cookit is an Android application designed to help users discover and explore various recipes. Leveraging the Spoonacular API, Cookit provides users with access to a vast database of recipes, allowing them to search for recipes.
+Cookease is an Android application designed to help users discover and explore various recipes. Leveraging the Spoonacular API, Cookit provides users with access to a vast database of recipes, allowing them to search for recipes.
 
 ## Features
 
