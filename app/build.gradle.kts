@@ -102,7 +102,9 @@ implementation(libs.androidx.paging.runtime)
    implementation(libs.hilt.android)
   ksp(libs.hilt.compiler)
 
-//    implementation(libs.androidx.foundation.android)
-//    implementation(libs.androidx.material.icons.core.android)
-//    implementation(libs.androidx.material.icons.extended.android)
+    implementation("androidx.room:room-coroutines:2.1.0-alpha04")
+
+  implementation(libs.androidx.foundation.android)
+ implementation(libs.androidx.material3.android)
+ implementation(libs.androidx.material.icons.extended)
 }

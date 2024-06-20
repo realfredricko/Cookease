@@ -11,9 +11,9 @@ import com.example.cookease.cookease_features.data.model.Recipe
 interface RecipeDao {
     //Provides methods for the app to query,insert....
         @Query("SELECT * FROM recipe_table")
-        fun getAllRecipe(): PagingSource<Int, Recipe>
+        fun getRecipes(): PagingSource<Int, Recipe>
         @Insert(onConflict = OnConflictStrategy.REPLACE)
-        suspend fun addRecipe(recipe: List<Recipe>)
+        suspend fun addRecipes(recipe: List<Recipe>)
         @Query("DELETE FROM recipe_table")
-        suspend fun clearAllRecipe()
+        suspend fun clearRecipes()
 }

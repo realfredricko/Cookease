@@ -3,6 +3,7 @@ agp = "8.3.2"
 coilCompose = "2.6.0"
 converterGson = "2.7.2"
 coreSplashscreen = "1.0.1"
+foundationAndroid = "1.6.7"
 hiltAndroid = "2.51.1"
 hiltCompiler = "1.2.0"
 kotlin = "1.9.0"
@@ -13,6 +14,8 @@ espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
 composeBom = "2023.08.00"
+materialIconsExtended = "1.6.7"
+material3Android = "1.2.1"
 navigationCompose = "2.7.7"
 navigationRuntime = "2.7.7"
 pagingRuntime = "3.2.1"
@@ -28,8 +31,11 @@ roomKtx = "2.6.1"
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-foundation-android = { module = "androidx.compose.foundation:foundation-android", version.ref = "foundationAndroid" }
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
 androidx-hilt-navigation = { module = "androidx.hilt:hilt-navigation", version.ref = "hiltCompiler" }
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-material3-android = { module = "androidx.compose.material3:material3-android", version.ref = "material3Android" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime", version.ref = "navigationRuntime" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "pagingRuntime" }
