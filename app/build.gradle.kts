@@ -1,10 +1,25 @@
+import java.util.Properties
+import java.io.File
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
   id("dagger.hilt.android.plugin")
    id("com.google.devtools.ksp")
+    //id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
-
+// Function to load local properties
+fun gradleLocalProperties(rootDir: File): Properties {
+    val properties = Properties()
+    val localPropertiesFile = File(rootDir, "local.properties")
+    if (localPropertiesFile.exists()) {
+        FileInputStream(localPropertiesFile).use { fileInputStream ->
+            properties.load(fileInputStream)
+        }
+    }
+    return properties
+}
 android {
     namespace = "com.example.cookease"
     compileSdk = 34
@@ -20,11 +35,32 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        //Groovy
+//def localPropertiesFile = rootProject.file("local.properties")
+//def localProperties = new Properties()
+//localProperties.load(new FileInputStream(localPropertiesFile))
+       // buildConfigField ("String","SPOONACULAR_API_KEY",localProperties['spoonacularApiKey'])
+
+        //kotlin
+        val properties:Properties = gradleLocalProperties(rootDir)
+        buildConfigField ("String","SPOONACULAR_API_KEY","\"${properties.getProperty("SPOONACULAR_API_KEY")}\"")
+    }
+
+    android {
+        buildTypes {
+            release {
+                isMinifyEnabled = true
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -39,7 +75,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -101,10 +137,11 @@ implementation(libs.androidx.paging.runtime)
 //    //dagger-hilt
    implementation(libs.hilt.android)
   ksp(libs.hilt.compiler)
-
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
     implementation("androidx.room:room-coroutines:2.1.0-alpha04")
 
   implementation(libs.androidx.foundation.android)
- implementation(libs.androidx.material3.android)
  implementation(libs.androidx.material.icons.extended)
+    //Secrets gradle plugin
+
 }

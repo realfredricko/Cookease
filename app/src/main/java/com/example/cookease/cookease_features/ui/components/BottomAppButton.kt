@@ -1,4 +1,4 @@
-package com.example.cookease.cookease_features.ui.core
+package com.example.cookease.cookease_features.ui.components
 
 import androidx.compose.runtime.Composable
 
